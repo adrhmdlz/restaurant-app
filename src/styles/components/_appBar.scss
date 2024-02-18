@@ -1,0 +1,80 @@
+@use '../abstracts/variables' as var;
+
+app-bar {
+  .navbar-wrapper {
+    position: sticky;
+    top: 0;
+
+    background-color: #ffffff;
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .navbar-brand {
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .hamburgerButton {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+        background-color: var.$optional-colors-2;
+
+        border-radius: 10px;
+        border: none;
+
+        &:hover {
+          border: 5px solid var.$optional-colors-1;
+        }
+      }
+
+      .nav-items {
+        position: fixed;
+        inset-block-start: 6rem;
+        inset-inline: 0;
+
+        margin: 10px 0;
+        padding: 32px;
+        background-color: var.$optional-colors-2;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        transition: 0.3s ease-in-out;
+        transform: translateX(550%);
+        opacity: 1;
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        .nav-item {
+          &.active {
+            width: 35%;
+
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+
+            background-color: var.$primary-colors;
+            font-weight: bold;
+
+            & a {
+              color: var.$optional-colors-2;
+            }
+          }
+
+          &:hover {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

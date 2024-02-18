@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as var;
+@use 'sass:map';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var.$primary-fonts;
+  color: var.$primary-colors;
+}
+
+a {
+  text-decoration: none;
+  color: var.$primary-colors;
+}
+
+.container {
+  max-width: 100%;
+  padding: 32px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background-color: var.$optional-colors-2;
+  color: var.$secondary-colors;
+  z-index: 100;
+
+  &:focus {
+    top: 0;
+  }
+}
