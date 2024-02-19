@@ -9,12 +9,12 @@
 
 body {
   font-family: var.$primary-fonts;
-  color: var.$primary-colors;
+  color: var.$font-color-level-1;
 }
 
 a {
   text-decoration: none;
-  color: var.$primary-colors;
+  color: var.$font-color-level-1;
 }
 
 .container {
@@ -27,8 +27,8 @@ a {
   top: -40px;
   left: 0;
   padding: 8px;
-  background-color: var.$optional-colors-2;
-  color: var.$secondary-colors;
+  background-color: var.$color-level-2;
+  color: var.$font-color-level-1;
   z-index: 100;
 
   &:focus {
