@@ -4,8 +4,11 @@ app-bar {
   .navbar-wrapper {
     position: sticky;
     top: 0;
+    background-color: var.$color-level-3;
 
-    background-color: #ffffff;
+    &.container {
+      padding: 12px 24px;
+    }
 
     .navbar {
       display: flex;
@@ -15,6 +18,8 @@ app-bar {
       .navbar-brand {
         font-size: 32px;
         font-weight: bold;
+
+        color: var.$font-color-level-4;
       }
 
       .hamburgerButton {
@@ -22,24 +27,28 @@ app-bar {
         height: 50px;
 
         font-size: 24px;
-        background-color: var.$optional-colors-2;
+        background-color: transparent;
+        color: var.$font-color-level-4;
 
         border-radius: 10px;
-        border: none;
+        border: 3px solid var.$color-level-1;
+
+        transition: 0.2s ease-in-out;
 
         &:hover {
-          border: 5px solid var.$optional-colors-1;
+          background-color: var.$color-level-4;
+          border: 3px solid var.$color-level-1;
         }
       }
 
       .nav-items {
         position: fixed;
-        inset-block-start: 6rem;
+        inset-block-start: 4rem;
         inset-inline: 0;
 
         margin: 10px 0;
         padding: 32px;
-        background-color: var.$optional-colors-2;
+        background-color: var.$color-level-3;
         text-align: center;
 
         display: flex;
@@ -62,11 +71,11 @@ app-bar {
             padding: 10px;
             border-radius: 10px;
 
-            background-color: var.$primary-colors;
+            background-color: var.$color-level-4;
             font-weight: bold;
 
             & a {
-              color: var.$optional-colors-2;
+              color: var.$font-color-level-4;
             }
           }
 
