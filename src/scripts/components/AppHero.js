@@ -10,8 +10,8 @@ class AppHero extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="hero-wrapper">
-        <h1>Mau makan dimana hari ini?</h2>
-        <a href="#">Cari Restaurant</a>
+        <h1 tabindex="0">Mau makan dimana hari ini?</h2>
+        <a href="#mainContent">Cari Restaurant</a>
       </div>
     `;
   }
