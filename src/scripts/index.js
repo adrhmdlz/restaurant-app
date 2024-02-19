@@ -4,6 +4,8 @@ import '../styles/main.scss';
 // Components
 import './components/AppBar';
 import './components/AppHero';
+import './components/AppMain';
+import './components/AppFooter';
 
 // Utils
 import { navbarActive, navbarInactive } from './utils/navbarFunc';
@@ -20,11 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburgerButton = document.querySelector('#hamburgerButton');
   const navbarItems = document.querySelector('#navItems');
 
-  hamburgerButton.addEventListener('click', () => {
+  hamburgerButton.addEventListener('click', (event) => {
     if (navbarItems.classList.contains('active')) {
       navbarInactive();
+      event.stopPropagation();
     } else {
       navbarActive();
+      event.stopPropagation();
     }
   });
 
