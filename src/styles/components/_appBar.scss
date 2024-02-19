@@ -61,9 +61,15 @@ app-bar {
 
         &.active {
           transform: translateX(0);
+
+          .nav-item {
+            display: block;
+          }
         }
 
         .nav-item {
+          display: none;
+
           &.active {
             width: 35%;
 
