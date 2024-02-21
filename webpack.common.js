@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -52,6 +53,14 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(__dirname, 'src/public/images/makan-kuy-logo.png'),
+
+      outputPath: 'public/favicons',
+
+      publicPath: 'public',
+      prefix: 'favicons/',
     }),
   ],
 };
