@@ -10,7 +10,7 @@ class AppFooter extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="footer-wrapper">
-        <p class="footer-content">Copyright &copy; 2024, made by <a href="https://github.com/adrhmdlz">Adrhmdlz</a>.</p>
+        <p class="footer-content">Copyright &copy; 2024, made by <a href="https://instagram.com/adrhmdlz" class="footer-link" target="_blank" aria-label="Author Social Media">Adrhmdlz</a>.</p>
       </div>
     `;
   }
