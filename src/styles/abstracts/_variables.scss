@@ -1,3 +1,12 @@
+$breakpoints: (
+  'xs': 375px,
+  'sm': 425px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);
+
 $primary-fonts: 'Nunito', sans-serif;
 
 $color-level-1: #f3eeea;
@@ -5,6 +14,7 @@ $color-level-2: #ebe3d5;
 $color-level-3: #b0a695;
 $color-level-4: #776b5d;
 $color-level-5: #f0ece5;
+$color-level-6: #5d574c;
 
 $font-color-level-1: #161a30;
 $font-color-level-2: #31304d;
