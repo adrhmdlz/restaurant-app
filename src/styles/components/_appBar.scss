@@ -1,10 +1,16 @@
 @use '../abstracts/variables' as var;
+@use 'sass:map';
 
 app-bar {
   .navbar-wrapper {
-    position: sticky;
+    position: fixed;
     top: 0;
+
+    width: 100%;
+
     background-color: var.$color-level-3;
+
+    z-index: 998;
 
     &.container {
       padding: 12px 24px;
@@ -53,11 +59,11 @@ app-bar {
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1.5rem;
 
         transition: 0.3s ease-in-out;
         transform: translateX(550%);
-        opacity: 1;
 
         &.active {
           transform: translateX(0);
@@ -69,26 +75,80 @@ app-bar {
 
         .nav-item {
           display: none;
+          margin: 0 auto;
+
+          & a {
+            color: var.$font-color-level-4;
+          }
 
           &.active {
             width: 35%;
 
-            margin: 0 auto;
             padding: 10px;
             border-radius: 10px;
 
             background-color: var.$color-level-4;
             font-weight: bold;
-
-            & a {
-              color: var.$font-color-level-4;
-            }
           }
 
           &:hover {
             font-weight: bold;
           }
         }
+      }
+    }
+  }
+}
+
+// MD: minimum viewport width: 768px
+@media screen and (min-width: map.get(var.$breakpoints, 'md')) {
+  app-bar {
+    .navbar-wrapper {
+      &.container {
+        padding: 24px;
+      }
+
+      .navbar {
+        .hamburgerButton {
+          display: none;
+        }
+
+        .nav-items {
+          width: 45%;
+
+          position: relative;
+
+          margin: 0;
+          padding: 0;
+
+          inset-block-start: 0;
+
+          transform: translateX(0);
+
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+
+          .nav-item {
+            display: block;
+
+            &.active {
+              width: 25%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// XL: minimum viewport width: 1200px
+@media screen and (min-width: map.get(var.$breakpoints, 'xl')) {
+  app-bar {
+    .navbar-wrapper {
+      .navbar {
+        max-width: 1200px;
+        margin: auto;
       }
     }
   }
