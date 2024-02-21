@@ -10,18 +10,17 @@ class AppMain extends HTMLElement {
   }
 
   render() {
-    // Membuat string kosong untuk menyimpan HTML yang akan dirender
     let html = `
       <div class="main-wrapper">
-        <h2 class="main-header" tabindex="0">Rekomendasi Restaurant</h2>
-        <div class="card-wrapper">
+        <h2 class="main-header" tabindex="0">Rekomendasi Restoran</h2>
+        <div class="card-wrapper" id="mainCard">
     `;
 
-    // Iterasi pada setiap objek dalam array dan menambahkan HTML untuk setiap objek
     restaurants.forEach((item) => {
       html += `
-          <div class="card">
-            <img src="${item.pictureId}" alt="${item.name}" title="${item.name}" class="card-image"></img>
+          <div class="card" tabindex="0" aria-label="nama restoran, ${item.name}. lokasi restoran, ${item.city}. rating restoran, ${item.rating}">
+            <span class="card-info">${item.city}</span>
+            <img src="${item.pictureId}" alt="${item.name}" class="card-image"></img>
             <div class="card-body">
               <div class="card-header">
                 <h3>${item.name}</h3>
@@ -35,13 +34,11 @@ class AppMain extends HTMLElement {
       `;
     });
 
-    // Menutup tag div
     html += `
         </div>
       </div>
     `;
 
-    // Mengatur innerHTML dari custom element dengan HTML yang telah dibuat
     this.innerHTML = html;
   }
 }
