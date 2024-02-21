@@ -24,6 +24,7 @@ app-bar {
       .navbar-brand {
         font-size: 32px;
         font-weight: bold;
+        padding: 10px;
 
         color: var.$font-color-level-4;
       }
@@ -69,22 +70,25 @@ app-bar {
           transform: translateX(0);
 
           .nav-item {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
         .nav-item {
+          position: relative;
           display: none;
           margin: 0 auto;
+          min-width: 44px;
+          min-height: 44px;
 
           & a {
             color: var.$font-color-level-4;
+            padding: 14px;
           }
 
           &.active {
-            width: 35%;
-
-            padding: 10px;
             border-radius: 10px;
 
             background-color: var.$color-level-4;
@@ -105,7 +109,7 @@ app-bar {
   app-bar {
     .navbar-wrapper {
       &.container {
-        padding: 24px;
+        padding: 14px 24px;
       }
 
       .navbar {
@@ -130,11 +134,9 @@ app-bar {
           justify-content: space-around;
 
           .nav-item {
-            display: block;
-
-            &.active {
-              width: 25%;
-            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }
@@ -149,6 +151,10 @@ app-bar {
       .navbar {
         max-width: 1200px;
         margin: auto;
+
+        .nav-items {
+          width: 30%;
+        }
       }
     }
   }

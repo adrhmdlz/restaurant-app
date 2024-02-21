@@ -20,7 +20,7 @@ class AppBar extends HTMLElement {
           <ul class="nav-items" id="navItems">
             <li class="nav-item active"><a href="/">Home</a></li>
             <li class="nav-item"><a href="#">Favorites</a></li>
-            <li class="nav-item"><a href="https://github.com/adrhmdlz">About Us</a></li>
+            <li class="nav-item"><a href="https://github.com/adrhmdlz" target="_blank">About Us</a></li>
           </ul>
         </nav>
       </div>
