@@ -1,148 +1,100 @@
-# Submission: Katalog Restoran
+# Submission: Katalog Restauran + PWA
 
-## Pengantar
+## Pengenalan
 
-Anda sudah mempelajari teknik mobile first approach, dan aksesibilitas pada web. Selama pembelajaran, Anda juga sudah berlatih:
+Anda sudah mempelajari cara menuliskan JavaScript dengan gaya yang konsisten dan mengikuti kaidah yang baik menurut buku Clean Code. Selain itu Anda juga sudah belajar membangun web app secara progressive dengan menerapkan sifat offline capability dan installable. Anda juga sudah berlatih:
 
-- Menerapkan dasar responsibilitas tampilan pada perangkat seluler ([Implementing Small Things](https://www.dicoding.com/academies/219/tutorials/9175)).
-- Menerapkan layout yang responsif menggunakan @media query dan grid CSS ([Impelementing Responsive Layout](https://www.dicoding.com/academies/219/tutorials/9186)).
-- Optimisasi elemen UI seperti menerapkan navigation drawer, dan menetapkan jarak teks yang sesuai ([Other Optimization](https://www.dicoding.com/academies/219/tutorials/9196)).
-- Menggunakan focus dan screen reader untuk menginput data di website ([Experiencing Focues](https://www.dicoding.com/academies/219/tutorials/9241) & [Experiencing Screen Reader](https://www.dicoding.com/academies/219/tutorials/9281)).
+- Menggunakan ESLint sebagai linter ketika menuliskan kode JavaScript ([Menggunakan ESLint](https://www.dicoding.com/academies/219/tutorials/9316)).
+- Membuat website dengan arsitektur Application Shell ([Latihan: Application Shell](https://www.dicoding.com/academies/219/tutorials/9416)).
+- Menerapkan Web App Manifest ([Latihan: Web App Manifest](https://www.dicoding.com/academies/219/tutorials/9466)).
+- Menerapkan Service Worker ([Latihan: Service Worker](https://www.dicoding.com/academies/219/tutorials/9501)).
+- Menerapkan Cache API pada Service Worker ([Latihan: Cache API](https://www.dicoding.com/academies/219/tutorials/9526)).
+- Menggunakan IndexedDB untuk menyimpan data dalam bentuk objek ([Latihan: IndexedDB](https://www.dicoding.com/academies/219/tutorials/9554)).
+- Menerapkan WebSocket dan Notification ([Latihan: Web Socket](https://www.dicoding.com/academies/219/tutorials/9621) & [Latihan: Notification](https://www.dicoding.com/academies/219/tutorials/9631)).
 
-Untuk mempelajari modul berikutnya, kirimkan proyek aplikasi web dengan tema **Katalog Restoran**. Aplikasi memiliki satu halaman statis yang menampilkan daftar restoran sesuai dengan data yang diberikan.
-
-## Starter Project
-
-Dalam mengerjakan proyek ini Anda harus menggunakan environment Webpack. Tenang, kami sudah menyiapkan starter project yang dapat Anda gunakan untuk mengerjakan submission pertama, hingga submission akhir. Jadi Anda tidak perlu repot melakukan konfigurasi, dsb.
-
-- Silakan unduh [starter project submission](https://raw.githubusercontent.com/dicodingacademy/a219-mfwde-labs/099-starter-project/restaurant-apps-starter-project.zip).
-- Buka proyek menggunakan code editor yang digunakan.
-- Jalankan perintah **npm install** untuk memasang seluruh dependencies yang digunakan pada proyek.
-
-Untuk menjalankan proyek, Anda bisa gunakan perintah-perintah berikut.
-
-- **npm run start-dev**: menjalankan proyek pada mode development menggunakan webpack-dev-server.
-- **npm run build**: membangun proyek dalam mode production.
-
-Tuliskan semua source code dalam folder src. Kami telah mengelompokkan dalam folder-folder terpisah agar mudah mengatur aset-aset yang akan Anda buat.
-
-- **src → public**: untuk menyimpan aset yang dapat diakses secara public seperti favicon, icons, gambar, video, atau font.
-- **src → styles**: untuk menyimpan berkas styling seperti CSS.
-- **src → scripts**: untuk menyimpan berkas JavaScript, termasuk entry point.
-- **src → templates**: untuk menyimpan aset HTML.
-
-Struktur folder tidak harus seperti dicontohkan, Anda bisa mengubah sesuai dengan kebutuhan. Anda juga boleh melakukan kustomisasi konfigurasi webpack seperti menambahkan konfigurasi SASS, file-loader, ataupun lainnya.
-
-```
-Catatan:
-Anda juga akan menemukan berkas karma.conf.js serta folder specs dan berkas sampleTestSpec.js di dalamnya. Berkas-berkas tersebut adalah konfigurasi yang dibutuhkan untuk melakukan automate testing. Jika Anda belum mengetahui apa itu automate testing, hiraukan saja, namun jangan hapus berkas-berkas tersebut. Kita akan mempelajari automate testing pada modul mendatang.
-```
+Untuk mempelajari modul berikutnya, Anda harus mengembangkan kembali web app Katalog Restoran hingga menjadi Progressive Web Apps dengan kriteria yang sudah ditentukan.
 
 ## Kriteria
 
 Fitur yang harus ada pada aplikasi:
 
-1.  App Bar (Navigation Bar), syarat:
-
-    - Menampilkan nama aplikasi atau brand logo dari aplikasi katalog restoran (tentukan sendiri nama aplikasi atau brand logonya).
-    - Terdapat navigation menu:
-      - Home → mengarah ke root domain.
-      - Favorite → target URL cukup bernilai “#” (Sebagai - placeholder untuk digunakan pada submission selanjutnya).
-      - About Us → arahkan ke profil LinkedIn/Github/Social Media Anda, atau boleh juga ke personal web/blog.
-    - Terdapat fitur navigation drawer yang berfungsi dengan baik bila diakses pada layar seluler.
-
-2.  Hero Element (Jumbotron Element), syarat:
-
-    - Menampilkan hero element dengan gambar yang sudah ditentukan, silakan pilih salah satu aset yang disediakan di dalam starter proyek, src → public → images → hero. Gambar yang tidak digunakan, bisa Anda hapus.
-    - Gambar hero element yang ditampilkan haruslah full-width atau memenuhi persyaratan sebagai berikut.
-    - Tampilkan minimal dengan width 1000px pada ukuran viewport width >= 1200px.
-    - Jika ukuran viewport width < 1200px, hero element ditampilkan full-width.
-
-3.  Daftar Restoran, syarat:
-
-    - Menampilkan daftar restoran berdasarkan data yang sudah disediakan di dalam project starter–lokasinya ada di src → public → data → DATA.json. Untuk menampilkannya dapat melalui cara hardcoded–dituliskan dalam HTML secara langsung–atau DOM manipulation menggunakan JavaScript.
-    - Wajib menampilkan nama, gambar, dan minimal salah satu di antara kota, rating, dan/atau deskripsi pada restoran.
-
-4.  Footer, syarat:
-
-    - Terdapat footer yang ditampilkan di bawah halaman.
-    - Terdapat konten teks bebas sesuai dengan kreatifitas Anda. Misalnya, konten hak cipta yang mencangkup tahun dan nama aplikasi. Contoh: “Copyright © 2020 - Hunger Apps”.
-
-5.  Responsibilitas Tampilan, syarat:
-
-    - Tampilan web app harus responsif pada seluruh ukuran layar (mobile - tablet - desktop). Utamakan tampilan mobile terlebih dahulu.
-    - Gunakan teknik Grid CSS atau Flexbox dalam menyusun layout. Bila terdapat float, submission Anda akan kami ditolak.
-    - Menetapkan ukuran viewport secara dinamis berdasarkan layar device yang digunakan.
-
-6.  Aksebilitas Website, syarat:
-
-    - Seluruh fungsionalitas website dapat dilakukan dengan menggunakan keyboard. Contohnya mengakses tombol hamburger button, mengakses tautan yang ada, dan lain sebagainya.
-    - Menerapkan teknik Skip to Content untuk melewati focus pada menu navigasi.
-    - Terdapat alternative teks pada seluruh gambar yang ditampilkan. Bila ada gambar yang tidak memiliki arti apa pun, cukup berikan atribut alt dengan nilai kosong.
-    - Dimensi touch target pada elemen yang diinteraksikan dengan touch harus memilliki ukuran elemen minimal 44x44px. Adapun beberapa contoh elemen tersebut meliputi button, anchor, input text, dan textarea. Pastikan juga terdapat jarak antar elemen tersebut supaya dimensi touch target tidak menumpuk.
-    - Menggunakan semantic element dalam menyusun struktur dan landmarking HTML.
+1. Halaman Utama (Daftar Restoran), syarat:
+   - Menampilkan daftar restoran yang datanya bersumber dari API: [restaurant-api.dicoding.dev](https://restaurant-api.dicoding.dev/). Silakan lihat dokumentasinya pada halaman tersebut.
+   - Wajib menampilkan nama, gambar, dan minimal salah satu di antara kota, rating, dan/atau deskripsi pada restoran.
+   - Ada tautan/CTA yang mengarah ke detail restoran pada setiap item-nya.
+   - Hero elemen tetap dipertahankan.
+2. Halaman Detail Restoran, syarat:
+   - Menampilkan detail dari restoran yang dipilih dari halaman utama (daftar restoran) atau halaman favorit restoran.
+   - Pada halaman detail restoran harus berisi hal-hal berikut.
+     - Nama restoran
+     - Gambar
+     - Alamat
+     - Kota
+     - Deskripsi
+     - Menu Makanan
+     - Menu Minuman
+     - Customer Reviews
+   - Ada tombol favorite untuk memasukkan atau menghapus restoran favorit dari database. Penyimpanan ini menggunakan IndexedDB.
+3. Halaman Daftar Restoran Favorit, syarat:
+   - Halaman daftar restoran dapat diakses melalui menu navigasi favorit.
+   - Menampilkan restoran yang difavoritkan oleh pengguna (data diambil dari indexedDB).
+   - Wajib menampilkan nama, gambar dan minimal salah satu diantara kota, rating, dan atau deskripsi pada restoran.
+   - Ada tautan/CTA yang mengarah ke detail restoran pada tiap itemnya.
+4. Native Capability, syarat:
+   - Aplikasi dapat diakses dalam keadaan offline tanpa ada aset yang gagal dimuat, termasuk data yang didapatkan dari API. Anda bebas menggunakan strategi caching apa pun, bahkan menggunakan workbox.
+   - Aplikasi harus menampilkan icon Add to Home Screen.
+   - Aplikasi memiliki custom icon yang ditampilkan pada home screen dan splash screen.
+5. Code Quality, syarat:
+   - Menggunakan ESLint sebagai linter ketika menuliskan kode JavaScript. **Harap lampirkan berkas konfigurasi ESLint, ya**.
+   - Menerapkan salah satu style guide, baik [Google JavaScript Code Style](https://google.github.io/styleguide/jsguide.html), [AirBnB JavaScript Code Style](https://github.com/airbnb/javascript), atau [StandardJS Code Style](https://standardjs.com/rules.html).
+   - Periksa kembali sebelum mengirimkan submission project Anda. Penuhi seluruh kriteria yang ditetapkan dalam konfigurasi linter Anda. Kondisi terpenuhinya kriteria ditandai dengan tidak adanya satupun error ketika menjalankan eslint.
+6. **Pertahankan syarat yang ada pada submission sebelumnya**. Di antaranya, responsibilitas tampilan, aksesibilitas pada website, appbar, footer, dan sebagainya.
 
 ```
-Perhatian:
-Dalam mengerjakan submission ini, Anda tidak diperkenankan menggunakan css framework (seperti Bootstrap, Materialize, Tailwind, dll) yang dapat membantu dalam menyusun tampilan yang responsif. Tuliskan kode CSS from scratch, sistem layouting CSS murni saat ini sudah cukup powerful untuk membuat tampilan website responsif.
+Catatan:
+Dalam mengerjakan submission ini, Anda tidak diperkenankan menggunakan CSS framework, seperti Bootstrap, Materialize, Tailwind, dll, yang dapat membantu dalam menyusun tampilan yang responsif. Tuliskan kode CSS from scratch. Sistem layouting CSS saat ini sudah cukup kuat dan mantap untuk membuat tampilan website responsif seperti CSS grid.
 ```
 
-Berikut kerangka tampilan yang bisa Anda gunakan sebagai referensi.
+## Penilaian
 
-![Mockup web](/20200716221508256e3258c528af119cc04d2cfddac02f.jpeg)
+Submission Anda akan dinilai oleh reviewer dengan skala 1-5 berdasarkan dari parameter yang akan kami sebutkan. Anda dapat menerapkan beberapa saran di bawah ini untuk mendapatkan nilai tinggi.
 
-## Saran
-
-Submission Anda akan dinilai oleh reviewer dengan skala 1-5 berdasarkan dari parameter yang ada.
-
-Anda dapat menerapkan beberapa saran untuk mendapatkan nilai tinggi. Beberapa saran tersebut dapat dilihat pada poin-poin di bawah ini.
-
-- Menerapkan tampilan aplikasi yang menarik. Berikut adalah beberapa checklist dari saran ini.
-  - Memiliki pemilihan warna yang pas dengan tema aplikasi (Dalam memilih warna, Anda dapat memanfaatkan tools pemilihan warna seperti [colorhunt.co](http://colorhunt.co/)).
-  - Tata letak elemen yang pas. Contoh: Tidak ada konten yang bertumpuk.
-  - Penggunaan font yang pas dengan tema.
-  - Penerapan padding, margin yang pas.
-- Terdapat konten tambahan yang relevan dengan tema aplikasi atau di luar dari data yang disediakan.
-- Menggunakan elemen secara bijak sesuai dengan fungsinya. Contoh: tidak menggunakan button sebagai anchor ataupun sebaliknya.
-- Dalam penyusunan CSS, Anda boleh menggunakan CSS preprocessor seperti SASS bila nyaman menggunakannya. Gunakanlah [sass-loader](https://www.npmjs.com/package/sass-loader) untuk memuat berkas sass pada webpack.
-
-Detail penilaian submission
-
-- **Bintang 1**: Semua ketentuan terpenuhi, tetapi banyak tampilan yang masih perlu banyak diperbaiki atau terindikasi melakukan plagiat.
-- **Bintang 2**: Semua ketentuan terpenuhi, tetapi banyak tampilan yang masih perlu diperbaiki.
-- **Bintang 3**: Semua ketentuan terpenuhi, tetapi tampilan hanya mengikuti seperti apa yang ada pada latihan.
-- **Bintang 4**: Semua ketentuan terpenuhi dan menerapkan minimal 2 (dua) saran di atas.
-- **Bintang 5**: Semua ketentuan terpenuhi dan menerapkan semua saran di atas.
+- Menambahkan fitur untuk memberikan customer review pada halaman detail. Silakan simak caranya pada [dokumentasi API](https://restaurant-api.dicoding.dev/) (Gunakan testing key untuk api key-nya).
+- Alangkah baiknya bila Anda menerapkan Web Component secara native menggunakan Custom Element.
+- Mengimplementasikan indikator loading saat data sedang dimuat dari server dan tampilkan keterangan/umpan balik bila hasil request HTTP yang dilakukan terjadi kegagalan.
 
 ## Lainnya
 
-### Submission yang Tidak Sesuai Kriteria
+Ada beberapa hal lain yang perlu Anda perhatikan dalam melaksanakan submission ini.
 
-Jika submission Anda tidak sesuai dengan kriteria, maka akan ditolak oleh reviewer, berikut poin-poin yang harus diperhatikan:
+### Submission yang Akan Ditolak
 
-- Tidak memenuhi kriteria yang telah ditentukan.
+Submission Anda bisa saja akan ditolak oleh reviewer jika tidak memenuhi beberapa ketentuan berikut.
+
+- Seluruh kriteria tidak dipenuhi.
 - Tidak menggunakan webpack sebagai module bundler dan environment development.
-- Menggunakan CSS framework untuk membantu menyusun layout website.
-- Mengirimkan proyek submission dengan ukuran yang besar, biasanya disebabkan oleh berkas node_modules ikut terkirim.
+- Menggunakan CSS framework untuk menyusun layout halaman.
+- Menggunakan JavaScript framework untuk membangun UI aplikasi, seperti React, Angular, Vue, atau sebagainya dalam membangun proyek submission.
+- Mengirimkan proyek submission dengan ukuran yang besar. Ini biasanya terjadi karena berkas node_modules yang ikut terkirim.
 - Proyek tidak berhasil di-build.
-- Mengirimkan proyek yang bukan karya sendiri.
+- Mengirimkan proyek yang karya siswa lain.
 
 ### Ketentuan Berkas Submission
 
 Beberapa poin yang perlu diperhatikan ketika mengirimkan berkas submission:
 
-- Di dalam folder proyek tersebut terdiri dari HTML, CSS, JS, atau aset yang Anda gunakan dalam halaman web yang Anda buat.
-- Selain itu, pastikan di dalam folder proyek terdapat berkas package.json yang mengandung daftar dependencies yang proyek Anda gunakan.
-- Mengirimkan proyek dalam bentuk folder Proyek, kemudian arsipkan folder tersebut dalam bentuk ZIP.
-- Tidak perlu menyertakan package yang berada pada node_modules ke dalam berkas ZIP. Karena akan membuat berkas ZIP memiliki ukuran yang besar.
+- Folder proyek terdiri dari HTML, CSS, JS, dan semua aset yang Anda gunakan dalam halaman web yang Anda buat.
+- Pastikan terdapat berkas package.json yang mengandung daftar dependencies yang proyek Anda gunakan.
+- Kirimkan proyek yang dikompresi ke bentuk ZIP.
+- Sekali lagi, Anda dilarang menyertakan node_modules yang berisi packages ke dalam berkas ZIP. Ini akan menyebabkan berkas ZIP berukuran sangat besar.
 
 ### Ketentuan Proses Review
 
-Beberapa hal yang perlu Anda ketahui mengenai proses review
+Berikut adalah beberapa hal yang perlu Anda ketahui mengenai proses review.
 
-- Tim penilai akan mengulas submission Anda dalam waktu selambatnya 3 (tiga) hari kerja (tidak termasuk Sabtu, Minggu, dan hari libur nasional).
+- Tim penilai akan mengulas submission Anda dalam waktu **selambatnya 3 (tiga)** hari kerja (tidak termasuk Sabtu, Minggu, dan hari libur nasional).
 - Tidak disarankan untuk melakukan submit berkali-kali karena akan memperlama proses penilaian.
-- Anda akan mendapatkan notifikasi hasil review submission via email. Status submission juga bisa dilihat dengan mengecek di halaman submission.
+- Anda akan mendapatkan notifikasi hasil review submission via email. Status submission juga bisa dilihat dengan mengecek di halaman [submission](https://www.dicoding.com/academysubmissions/my).
 - Setelah melakukan submit tugas di submission ini, Anda bisa mengakses modul selanjutnya tanpa harus menunggu hingga proses review selesai dari tim Reviewer.
-- Anda masih bisa mengakses modul selanjutnya meskipun submission di-reject oleh tim Reviewer.
+- Anda masih bisa mengakses modul selanjutnya meskipun submission di-_reject_ oleh tim Reviewer.
 - Pastikan submission Anda sudah disetujui (approved) oleh tim reviewer, sebelum dapat mengakses submission berikutnya.
