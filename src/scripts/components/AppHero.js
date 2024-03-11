@@ -1,4 +1,5 @@
 class AppHero extends HTMLElement {
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     super();
   }
@@ -9,10 +10,7 @@ class AppHero extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="hero-wrapper">
-        <h1 tabindex="0">Mau makan dimana hari ini?</h2>
-        <a href="#mainContent">Cari Restaurant</a>
-      </div>
+      <div class="hero-wrapper" id="heroWrapper"></div>
     `;
   }
 }
