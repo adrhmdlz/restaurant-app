@@ -17,8 +17,7 @@ app-hero {
     text-align: center;
     color: var.$font-color-level-4;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url(~/src/public/images/heros/hero-image_2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(~/src/public/images/heros/hero-image_2.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -45,6 +44,11 @@ app-hero {
       &:hover {
         background-color: var.$color-level-4;
       }
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-weight: bold;
     }
   }
 }
