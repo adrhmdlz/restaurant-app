@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -28,6 +28,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
+                // eslint-disable-next-line global-require
                 plugins: () => [require('autoprefixer')],
               },
             },
@@ -38,6 +39,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -54,13 +58,18 @@ module.exports = {
         },
       ],
     }),
-    new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, 'src/public/images/makan-kuy-logo.png'),
 
-      outputPath: 'public/favicons',
-
-      publicPath: 'public',
-      prefix: 'favicons/',
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'dicodingrestaurant-api',
+          },
+        },
+      ],
     }),
   ],
 };
