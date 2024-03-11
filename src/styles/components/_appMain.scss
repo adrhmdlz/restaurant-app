@@ -2,98 +2,359 @@
 @use 'sass:map';
 
 app-main {
-  .main-wrapper {
-    padding: 10px 0;
-    margin: 0 auto 10px;
+  &.container {
+    max-width: 95%;
+    margin: 0 auto;
 
-    .main-header {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
+    display: block;
 
-      padding: 20px;
-    }
+    .main-wrapper {
+      padding: 10px 5px;
+      margin: 20px auto;
 
-    .card-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      .main-header {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
 
-      .card {
-        border: 2px solid var.$color-level-4;
-        border-radius: 10px;
-        max-height: 250px;
+        padding: 0 0 20px;
+      }
 
-        background-color: var.$color-level-4;
-        color: var.$font-color-level-4;
+      .card-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
 
-        overflow: hidden;
+        .card {
+          border: 2px solid var.$color-level-4;
+          border-radius: 10px;
+          max-height: 270px;
 
-        .card-info {
-          position: absolute;
+          background-color: var.$color-level-4;
+          color: var.$font-color-level-4;
 
-          background-color: var.$color-level-6;
+          overflow: hidden;
 
-          margin: 10px;
-          padding: 5px 10px;
+          .card-info {
+            position: absolute;
 
-          border-radius: 5px;
+            background-color: var.$color-level-6;
 
-          font-size: 16px;
-          font-weight: bold;
+            margin: 10px;
+            padding: 5px 10px;
 
-          z-index: 997;
-        }
+            border-radius: 5px;
 
-        .card-image {
-          width: 100%;
-          height: 50%;
+            font-size: 16px;
+            font-weight: bold;
 
-          object-fit: cover;
-        }
+            z-index: 996;
+          }
 
-        .card-body {
-          padding: 10px 20px;
+          .card-image {
+            width: 100%;
+            height: 50%;
 
-          .card-header {
-            padding: 10px 0;
+            object-fit: cover;
+          }
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+          .card-body {
+            padding: 5px 20px;
 
-            h3 {
-              font-weight: bold;
-              font-size: 16px;
-            }
-
-            .star {
-              font-size: 14px;
-
-              color: goldenrod;
+            .card-header {
+              padding: 5px 0;
+              min-height: 44px;
 
               display: flex;
+              justify-content: space-between;
               align-items: center;
-              gap: 0.2rem;
+
+              h3 {
+                font-weight: bold;
+                font-size: 16px;
+
+                a {
+                  display: flex;
+                  align-items: center;
+                  min-height: 44px;
+
+                  color: var.$font-color-level-4;
+
+                  &:hover {
+                    color: var.$font-color-level-3;
+                  }
+                }
+              }
+
+              .star {
+                font-size: 14px;
+
+                color: goldenrod;
+
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+
+                p {
+                  color: var.$font-color-level-4;
+                }
+              }
+            }
+
+            .card-desc {
+              width: 100%;
+
+              font-size: 14px;
+
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+
+        .empty-restaurant-message {
+          margin: 30px auto;
+          text-align: center;
+        }
+      }
+
+      .restaurant-detail {
+        .restaurant-name {
+          margin: 20px 0;
+          font-size: 32px;
+          font-weight: bold;
+        }
+
+        figure {
+          img {
+            width: 100%;
+            border-radius: 10px;
+          }
+
+          figcaption {
+            text-align: center;
+            font-size: 14px;
+            margin: 5px 0;
+          }
+        }
+
+        hr {
+          margin: 20px 0 10px;
+        }
+
+        .restaurant-overview {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5px 10px;
+          margin: 0;
+
+          .item {
+            &.restaurant-ratings {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 5px;
+              grid-column: span 1;
+            }
+
+            &.restaurant-reviews {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 5px;
+              grid-column: span 1;
+            }
+
+            &.restaurant-tags {
+              grid-column: span 2;
 
               p {
-                color: var.$font-color-level-4;
+                margin-bottom: 10px;
+              }
+
+              .restaurant-tags-item {
+                display: flex;
+                gap: 10px;
+
+                .restaurant-tag {
+                  padding: 5px 10px;
+                  border: 2px solid var.$color-level-4;
+                  border-radius: 10px;
+                }
               }
             }
           }
+        }
 
-          .card-desc {
-            width: 100%;
+        .restaurant-description {
+          margin: 20px 0;
+        }
 
-            font-size: 14px;
+        .restaurant-info {
+          margin: 20px 0;
 
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-
-            overflow: hidden;
-            text-overflow: ellipsis;
+          h3 {
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 18px;
           }
+
+          .restaurant-detail {
+            .restaurant-detail-list {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 10px;
+
+              .restaurant-detail-item {
+                .restaurant-info-wrapper {
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+
+                  .fas {
+                    min-width: 20px;
+                    display: flex;
+                    justify-content: center;
+                  }
+
+                  .restaurant-info-detail {
+                    .restaurant-info-detail-item {
+                      font-weight: bold;
+                      margin: 5px 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .restaurant-menu {
+          margin: 20px 0;
+
+          h3 {
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 18px;
+          }
+
+          .restaurant-menu-item {
+            margin: 10px 0;
+
+            h4 {
+              margin: 5px 0;
+              font-weight: bold;
+            }
+
+            .restaurant-menu-food {
+              display: grid;
+              grid-template-columns: 1fr;
+
+              .menu-item {
+                display: flex;
+                gap: 15px;
+                padding: 10px;
+                border: 2px solid var.$color-level-4;
+                border-radius: 10px;
+                margin: 5px 0;
+                font-weight: bold;
+              }
+            }
+
+            .restaurant-menu-drink {
+              display: grid;
+              grid-template-columns: 1fr;
+
+              .menu-item {
+                display: flex;
+                gap: 15px;
+                padding: 10px;
+                border: 2px solid var.$color-level-4;
+                border-radius: 10px;
+                margin: 5px 0;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+
+        .restaurant-reviews {
+          margin: 20px 0;
+
+          .customer-review {
+            text-align: center;
+            margin: 10px 0;
+            background-color: var.$color-level-4;
+            border-radius: 10px;
+            padding: 10px;
+            color: var.$font-color-level-4;
+
+            .review-item {
+              margin: 5px;
+            }
+          }
+        }
+
+        .restaurant-review-form {
+          margin: 30px 0 10px;
+
+          h3 {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            margin: 10px 0;
+          }
+
+          #addRestaurantReview {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 80%;
+            margin: 0 auto;
+
+            .customer-form-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+
+              input {
+                min-height: 44px;
+              }
+            }
+
+            .form-button {
+              margin: 0 auto;
+              min-height: 44px;
+              border: 2px solid var.$color-level-4;
+              border-radius: 10px;
+              background-color: transparent;
+              font-size: 14px;
+              color: var.$font-color-level-2;
+            }
+          }
+        }
+      }
+
+      #likeButtonContainer {
+        .like {
+          width: 55px;
+          height: 55px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var.$color-level-4;
+          position: fixed;
+          bottom: 16px;
+          right: 16px;
+          border-radius: 50%;
+          border: 0;
+          font-size: 18px;
+          color: white;
+          cursor: pointer;
         }
       }
     }
@@ -103,18 +364,20 @@ app-main {
 // XS: minimum viewport width: 375px
 @media screen and (min-width: map.get(var.$breakpoints, 'xs')) {
   app-main {
-    .main-wrapper {
-      .card-wrapper {
-        .card {
-          .card-body {
-            .card-header {
-              h3 {
-                font-size: 20px;
+    &.container {
+      .main-wrapper {
+        .card-wrapper {
+          .card {
+            .card-body {
+              .card-header {
+                h3 {
+                  font-size: 20px;
+                }
               }
-            }
 
-            .card-desc {
-              font-size: inherit;
+              .card-desc {
+                font-size: inherit;
+              }
             }
           }
         }
@@ -126,8 +389,10 @@ app-main {
 // SM: minimum viewport width: 576px
 @media screen and (min-width: map.get(var.$breakpoints, 'sm')) {
   app-main {
-    .main-wrapper {
-      width: 90%;
+    &.container {
+      .main-wrapper {
+        width: 90%;
+      }
     }
   }
 }
@@ -135,13 +400,107 @@ app-main {
 // MD: minimum viewport width: 768px
 @media screen and (min-width: map.get(var.$breakpoints, 'md')) {
   app-main {
-    .main-wrapper {
-      width: auto;
+    &.container {
+      .main-wrapper {
+        width: auto;
 
-      margin: 0 auto 20px;
+        .card-wrapper {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-      .card-wrapper {
-        grid-template-columns: repeat(2, 1fr);
+        .restaurant-detail {
+          figure {
+            img {
+              max-height: 250px;
+              object-fit: cover;
+            }
+
+            figcaption {
+              text-align: center;
+              font-size: 14px;
+              margin: 5px 0;
+            }
+          }
+
+          .restaurant-overview {
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            margin: 30px 0;
+            gap: 20px 0;
+
+            .item {
+              &.restaurant-ratings {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 5px;
+                grid-column: inherit;
+              }
+
+              &.restaurant-reviews {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 5px;
+                grid-column: inherit;
+              }
+
+              &.restaurant-tags {
+                grid-column: inherit;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                p {
+                  margin: 0;
+                }
+
+                .restaurant-tags-item {
+                  gap: 5px;
+                }
+              }
+            }
+          }
+
+          .restaurant-info {
+            .restaurant-detail {
+              .restaurant-detail-list {
+                grid-template-columns: repeat(2, 1fr);
+
+                .restaurant-detail-item {
+                  .restaurant-info-wrapper {
+                    gap: 20px;
+                  }
+                }
+              }
+            }
+          }
+
+          .restaurant-menu {
+            .restaurant-menu-item {
+              .restaurant-menu-food {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 10px;
+              }
+
+              .restaurant-menu-drink {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 10px;
+              }
+            }
+          }
+
+          .restaurant-reviews {
+            display: grid;
+            margin: 10px 0;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+
+            .customer-review {
+              margin: 0;
+            }
+          }
+        }
       }
     }
   }
@@ -150,9 +509,29 @@ app-main {
 // LG: minimum viewport width: 992px
 @media screen and (min-width: map.get(var.$breakpoints, 'lg')) {
   app-main {
-    .main-wrapper {
-      .card-wrapper {
-        grid-template-columns: repeat(3, 1fr);
+    &.container {
+      .main-wrapper {
+        .card-wrapper {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .restaurant-detail {
+          .restaurant-menu {
+            .restaurant-menu-item {
+              .restaurant-menu-food {
+                grid-template-columns: repeat(3, 1fr);
+              }
+
+              .restaurant-menu-drink {
+                grid-template-columns: repeat(3, 1fr);
+              }
+            }
+          }
+
+          .restaurant-reviews {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
       }
     }
   }
@@ -161,14 +540,36 @@ app-main {
 // XL: minimum viewport width: 1200px
 @media screen and (min-width: map.get(var.$breakpoints, 'xl')) {
   app-main {
-    .main-wrapper {
-      max-width: 1200px;
-      margin: 0 auto 30px;
+    &.container {
+      .main-wrapper {
+        max-width: 1200px;
+        margin: 0 auto 30px;
 
-      .card-wrapper {
-        .card {
-          .card-body {
-            padding: 10px 30px;
+        .card-wrapper {
+          .card {
+            max-height: 300px;
+
+            .card-body {
+              padding: 10px 30px;
+            }
+          }
+        }
+
+        .restaurant-detail {
+          .restaurant-menu {
+            .restaurant-menu-item {
+              .restaurant-menu-food {
+                grid-template-columns: repeat(4, 1fr);
+              }
+
+              .restaurant-menu-drink {
+                grid-template-columns: repeat(4, 1fr);
+              }
+            }
+          }
+
+          .restaurant-reviews {
+            grid-template-columns: repeat(4, 1fr);
           }
         }
       }
@@ -179,9 +580,11 @@ app-main {
 // XXL: minimum viewport width: 1400px
 @media screen and (min-width: map.get(var.$breakpoints, 'xxl')) {
   app-main {
-    .main-wrapper {
-      .card-wrapper {
-        grid-template-columns: repeat(4, 1fr);
+    &.container {
+      .main-wrapper {
+        .card-wrapper {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
     }
   }
