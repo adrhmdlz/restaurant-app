@@ -6,33 +6,29 @@ import './components/AppBar';
 import './components/AppHero';
 import './components/AppMain';
 import './components/AppFooter';
+import './components/AppNotification';
 
-// Utils
-import { navbarActive, navbarInactive } from './utils/navbarFunc';
+// Apps
+import App from './views/app';
+import swRegister from './utils/sw-register';
+import NavigationBar from './utils/navbar-initiator';
+
+const app = new App({
+  button: document.querySelector('#hamburgerButton'),
+  drawer: document.querySelector('#navItems'),
+  navIcon: document.querySelector('#hamburgerButton .fas'),
+  content: document.querySelector('#mainWrapper'),
+});
+
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('header');
-  const main = document.querySelector('main');
-  const footer = document.querySelector('footer');
-
-  main.style.minHeight = `calc(100vh - ${
-    header.clientHeight + footer.clientHeight
-  }px)`;
-
-  const hamburgerButton = document.querySelector('#hamburgerButton');
-  const navbarItems = document.querySelector('#navItems');
-
-  hamburgerButton.addEventListener('click', (event) => {
-    if (navbarItems.classList.contains('active')) {
-      navbarInactive();
-      event.stopPropagation();
-    } else {
-      navbarActive();
-      event.stopPropagation();
-    }
-  });
-
-  main.addEventListener('click', () => {
-    navbarInactive();
-  });
+  NavigationBar.init();
 });
