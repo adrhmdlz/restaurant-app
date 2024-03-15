@@ -56,7 +56,11 @@ const createRestaurantDetailTemplate = (restaurant) => {
 
     <hr />
 
-    <article class="restaurant-overview" tabindex="0" aria-label="rating restoran ${restaurant.rating}, jumlah review ${restaurant.customerReviews.length}">
+    <article 
+      class="restaurant-overview" 
+      tabindex="0" 
+      aria-label="rating restoran ${restaurant.rating}, jumlah review ${restaurant.customerReviews.length}"
+    >
       <div class="item restaurant-ratings">
         <div class="restaurant-star">
           ${restaurantRatingHTML}
@@ -79,13 +83,21 @@ const createRestaurantDetailTemplate = (restaurant) => {
     </article>
 
     <article class="restaurant-description">
-      <p tabindex="0" aria-label="deskripsi, ${restaurant.description}">${restaurant.description}</p>
+      <p 
+        tabindex="0" 
+        aria-label="deskripsi, ${restaurant.description}">
+          ${restaurant.description}
+      </p>
     </article>
 
     <article class="restaurant-info">
       <h3>Additional information</h3>
 
-      <div class="restaurant-detail" tabindex="0" aria-label="alamat, ${restaurant.address}, ${restaurant.city}">
+      <div 
+        class="restaurant-detail" 
+        tabindex="0" 
+        aria-label="alamat, ${restaurant.address}, ${restaurant.city}"
+      >
         <ul class="restaurant-detail-list">
           <li class="restaurant-detail-item">
             <div class="restaurant-info-wrapper">
@@ -185,14 +197,14 @@ const createRestaurantItemTemplate = (restaurant) => `
   </div>
 `;
 
-const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
+const createFavoriteRestaurantButtonTemplate = () => `
+  <button aria-label="add to favorite" id="favoriteButton" class="favorite">
     <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
+const createUnfavoriteRestaurantButtonTemplate = () => `
+  <button aria-label="remove from favorite" id="favoriteButton" class="favorite">
     <i class="fas fa-heart" aria-hidden="true"></i>
   </button>
 `;
@@ -200,6 +212,6 @@ const createLikedButtonTemplate = () => `
 export {
   createRestaurantDetailTemplate,
   createRestaurantItemTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createFavoriteRestaurantButtonTemplate,
+  createUnfavoriteRestaurantButtonTemplate,
 };
