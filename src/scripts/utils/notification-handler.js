@@ -20,7 +20,6 @@ const removeToast = (toast) => {
 };
 
 const createToast = (id, message) => {
-  console.log(message);
   const { icon } = toastDetails[id];
   const toast = document.createElement('div');
   toast.className = `toast ${id}`;

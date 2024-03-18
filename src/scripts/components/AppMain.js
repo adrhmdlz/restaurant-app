@@ -1,7 +1,7 @@
 class AppMain extends HTMLElement {
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     super();
-    this.classList.add('container');
   }
 
   connectedCallback() {
@@ -17,3 +17,7 @@ class AppMain extends HTMLElement {
 }
 
 customElements.define('app-main', AppMain);
+
+const appMain = document.createElement('app-main');
+appMain.classList.add('container');
+document.querySelector('main').appendChild(appMain);

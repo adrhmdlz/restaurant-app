@@ -16,3 +16,6 @@ class AppHero extends HTMLElement {
 }
 
 customElements.define('app-hero', AppHero);
+
+const appHero = document.createElement('app-hero');
+document.querySelector('header').appendChild(appHero);

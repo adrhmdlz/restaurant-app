@@ -1,5 +1,45 @@
 import API_ENDPOINT from '../global/api-endpoint';
 
+const createMainHeroTemplate = () => `
+  <div class="hero-content">
+    <h1 tabindex="0">Mau makan dimana hari ini?</h1>
+    <a href="#mainContent" id="searchRestaurantButton">Cari Restaurant</a>
+  </div>
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
+    <source srcset="/images/heros/hero-image_2-large.jpg">
+    <source srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+  </picture>
+`;
+
+const createFavoriteHeroTemplate = () => `
+  <div class="hero-content">
+    <h1 tabindex="0">Restoran Favorit</h1>
+  </div>
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
+    <source srcset="/images/heros/hero-image_2-large.jpg">
+    <source srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+  </picture>
+`;
+
+const createDetailHeroTemplate = () => `
+  <div class="hero-content">
+    <h1 tabindex="0">Detail Restoran</h1>
+  </div>
+  <picture>
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
+    <source srcset="/images/heros/hero-image_2-large.jpg">
+    <source srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+  </picture>
+`;
+
 const createRestaurantDetailTemplate = (restaurant) => {
   let foodsHTML = '';
   restaurant.menus.foods.forEach((food) => {
@@ -37,20 +77,27 @@ const createRestaurantDetailTemplate = (restaurant) => {
     restaurantCategoriesHTML += `<span class="restaurant-tag">${categories.name}</span>`;
   });
 
-  let restaurantRatingHTML = '';
+  let restaurantDetailRatingHTML = '';
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < Math.floor(restaurant.rating); i++) {
-    restaurantRatingHTML += '<span class="fa fa-star"></span>';
+    restaurantDetailRatingHTML += '<span class="fa fa-star"></span>';
   }
 
   return `
     <h2 class="restaurant-name" tabindex="0">${restaurant.name}</h2>
 
     <figure>
-      <img 
-        src="${`${API_ENDPOINT.RESTAURANT_IMAGE_URL}/${restaurant.pictureId}`}" 
-        alt="${restaurant.name}"
-      >
+      <picture>
+        <source 
+          media="(max-width: 600px)" srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
+          alt="${restaurant.name}"
+        >
+        <img 
+          src="${`${API_ENDPOINT.RESTAURANT_IMAGE_MEDIUM_URL}/${restaurant.pictureId}`}" 
+          alt="${restaurant.name}"
+          class="lazyload"
+        >
+      </picture>
       <figcaption>${restaurant.name}, ${restaurant.city}</figcaption>
     </figure>
 
@@ -63,7 +110,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
     >
       <div class="item restaurant-ratings">
         <div class="restaurant-star">
-          ${restaurantRatingHTML}
+          ${restaurantDetailRatingHTML}
         </div>
         <span>&#x2022;</span>
         <span>${restaurant.rating}</span>
@@ -145,7 +192,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
 
     <span>${restaurant.customerReviews.length} Reviews</span>
 
-    <article class="restaurant-reviews">
+    <article class="restaurant-reviews-list">
       ${customerReviewsHTML}
     </article>
 
@@ -171,31 +218,46 @@ const createRestaurantDetailTemplate = (restaurant) => {
   `;
 };
 
-const createRestaurantItemTemplate = (restaurant) => `
-  <div 
-    class="card" 
-    tabindex="0" 
-    aria-label="nama restoran, ${restaurant.name}. lokasi restoran, ${restaurant.city}."
-  >
-    <span class="card-info">${restaurant.city}</span>
-    <img 
-      src="${`${API_ENDPOINT.RESTAURANT_IMAGE_URL}/${restaurant.pictureId}`}" 
-      alt="${restaurant.name}" 
-      class="card-image"
-    ></img>
-    <div class="card-body">
-      <div class="card-header">
-        <h3>
-          <a href="#/detail/${restaurant.id}">${restaurant.name}</a>
-        </h3>
-        <i class="fas fa-star star">
-          <p>${restaurant.rating}</p>
-        </i>
+const createRestaurantItemTemplate = (restaurant) => {
+  let restaurantItemRating = '';
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < Math.floor(restaurant.rating); i++) {
+    restaurantItemRating += '<i class="fa fa-star skeleton"></i>';
+  }
+
+  return `
+    <div 
+      class="card" 
+      tabindex="0" 
+      aria-label="nama restoran, ${restaurant.name}. lokasi restoran, ${restaurant.city}."
+    >
+      <span class="card-info skeleton">${restaurant.city}</span>
+      <picture>
+        <source 
+          media="(max-width: 600px)" srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
+          alt="${restaurant.name}" 
+          class="lazyload card-image skeleton"
+        >
+        <img 
+          data-src="${`${API_ENDPOINT.RESTAURANT_IMAGE_MEDIUM_URL}/${restaurant.pictureId}`}" 
+          alt="${restaurant.name}" 
+          class="lazyload card-image skeleton"
+        >
+      </picture>
+      <div class="card-body">
+        <div class="card-header">
+          <h3 class="restaurant-title skeleton">
+            <a href="#/detail/${restaurant.id}">${restaurant.name}</a>
+          </h3>
+          <div class="restaurant-ratings">
+            ${restaurantItemRating}
+          </div>
+        </div>
+        <p class="card-desc skeleton">${restaurant.description}</p>
       </div>
-      <p class="card-desc">${restaurant.description}</p>
     </div>
-  </div>
-`;
+  `;
+};
 
 const createFavoriteRestaurantButtonTemplate = () => `
   <button aria-label="add to favorite" id="favoriteButton" class="favorite">
@@ -210,6 +272,9 @@ const createUnfavoriteRestaurantButtonTemplate = () => `
 `;
 
 export {
+  createMainHeroTemplate,
+  createFavoriteHeroTemplate,
+  createDetailHeroTemplate,
   createRestaurantDetailTemplate,
   createRestaurantItemTemplate,
   createFavoriteRestaurantButtonTemplate,

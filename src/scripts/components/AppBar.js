@@ -14,7 +14,7 @@ class AppBar extends HTMLElement {
         <nav id="navbar" class="navbar">
           <a href="/" class="navbar-brand" title="Brand title">MakanKuy</a>
 
-          <button class="hamburgerButton" id="hamburgerButton">
+          <button class="hamburgerButton" id="hamburgerButton" aria-label="offcanvas button">
             <i class="fas fa-bars"></i>
           </button>
 
@@ -30,3 +30,6 @@ class AppBar extends HTMLElement {
 }
 
 customElements.define('app-bar', AppBar);
+
+const appBar = document.createElement('app-bar');
+document.querySelector('header').appendChild(appBar);

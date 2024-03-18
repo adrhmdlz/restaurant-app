@@ -18,3 +18,6 @@ class AppFooter extends HTMLElement {
 }
 
 customElements.define('app-footer', AppFooter);
+
+const appFooter = document.createElement('app-footer');
+document.querySelector('footer').appendChild(appFooter);

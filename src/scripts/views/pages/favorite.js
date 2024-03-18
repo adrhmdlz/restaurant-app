@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
-import { createRestaurantItemTemplate } from '../../templates/template-creator';
+import { createFavoriteHeroTemplate, createRestaurantItemTemplate } from '../../templates/template-creator';
 import { createToast } from '../../utils/notification-handler';
 
 const Favorite = {
@@ -13,7 +13,7 @@ const Favorite = {
       const restaurantsCard = document.querySelector('#mainCard');
 
       const heroContainer = document.querySelector('#heroWrapper');
-      heroContainer.innerHTML = '<h1 tabindex="0">Restoran Favorit</h1>';
+      heroContainer.innerHTML = createFavoriteHeroTemplate();
 
       if (restaurants.length !== 0) {
         restaurants.forEach((restaurant) => {

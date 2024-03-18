@@ -1,4 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/main.scss';
 
 // Components
@@ -29,6 +31,16 @@ window.addEventListener('load', () => {
   swRegister();
 });
 
+const skeletonRemove = () => {
+  const skeletons = document.querySelectorAll('.skeleton');
+  if (skeletons) {
+    skeletons.forEach((item) => {
+      item.classList.remove('skeleton');
+    });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(skeletonRemove, 2000);
   NavigationBar.init();
 });
