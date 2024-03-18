@@ -51,7 +51,7 @@ const reviewFormHandler = () => {
 
             const reviewerReview = document.createElement('p');
             reviewerReview.classList.add('review-item');
-            reviewerReview.textContent = `${review.review}`;
+            reviewerReview.textContent = `"${review.review}"`;
 
             const reviewerName = document.createElement('h4');
             reviewerName.classList.add('review-item');
