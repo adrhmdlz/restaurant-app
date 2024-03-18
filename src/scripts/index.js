@@ -22,15 +22,6 @@ const app = new App({
   content: document.querySelector('#mainWrapper'),
 });
 
-window.addEventListener('hashchange', () => {
-  app.renderPage();
-});
-
-window.addEventListener('load', () => {
-  app.renderPage();
-  swRegister();
-});
-
 const skeletonRemove = () => {
   const skeletons = document.querySelectorAll('.skeleton');
   if (skeletons) {
@@ -39,6 +30,17 @@ const skeletonRemove = () => {
     });
   }
 };
+
+window.addEventListener('hashchange', () => {
+  setTimeout(skeletonRemove, 2000);
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  setTimeout(skeletonRemove, 2000);
+  app.renderPage();
+  swRegister();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(skeletonRemove, 2000);

@@ -14,3 +14,6 @@ class AppNotification extends HTMLElement {
 }
 
 customElements.define('app-notification', AppNotification);
+
+const appNotification = document.createElement('app-notification');
+document.querySelector('body').appendChild(appNotification);
