@@ -6,11 +6,11 @@ const createMainHeroTemplate = () => `
     <a href="#mainContent" id="searchRestaurantButton">Cari Restaurant</a>
   </div>
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
-    <source srcset="/images/heros/hero-image_2-large.jpg">
-    <source srcset="/images/heros/hero-image_2-large.webp">
-    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.webp">
+    <source data-srcset="/images/heros/hero-image_2-large.jpg">
+    <source data-srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" data-src="/images/heros/hero-image_2.jpg" alt="Hero Image">
   </picture>
 `;
 
@@ -19,11 +19,11 @@ const createFavoriteHeroTemplate = () => `
     <h1 tabindex="0">Restoran Favorit</h1>
   </div>
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
-    <source srcset="/images/heros/hero-image_2-large.jpg">
-    <source srcset="/images/heros/hero-image_2-large.webp">
-    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.webp">
+    <source data-srcset="/images/heros/hero-image_2-large.jpg">
+    <source data-srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" data-src="/images/heros/hero-image_2.jpg" alt="Hero Image">
   </picture>
 `;
 
@@ -32,11 +32,11 @@ const createDetailHeroTemplate = () => `
     <h1 tabindex="0">Detail Restoran</h1>
   </div>
   <picture>
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.jpg">
-    <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2-small.webp">
-    <source srcset="/images/heros/hero-image_2-large.jpg">
-    <source srcset="/images/heros/hero-image_2-large.webp">
-    <img class="lazyload" src="/images/heros/hero-image_2.jpg" alt="Hero Image">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.jpg">
+    <source media="(max-width: 600px)" data-srcset="/images/heros/hero-image_2-small.webp">
+    <source data-srcset="/images/heros/hero-image_2-large.jpg">
+    <source data-srcset="/images/heros/hero-image_2-large.webp">
+    <img class="lazyload" data-src="/images/heros/hero-image_2.jpg" alt="Hero Image">
   </picture>
 `;
 
@@ -89,11 +89,11 @@ const createRestaurantDetailTemplate = (restaurant) => {
     <figure>
       <picture>
         <source 
-          media="(max-width: 600px)" srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
+          media="(max-width: 600px)" data-srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
           alt="${restaurant.name}"
         >
         <img 
-          src="${`${API_ENDPOINT.RESTAURANT_IMAGE_MEDIUM_URL}/${restaurant.pictureId}`}" 
+          data-src="${`${API_ENDPOINT.RESTAURANT_IMAGE_MEDIUM_URL}/${restaurant.pictureId}`}" 
           alt="${restaurant.name}"
           class="lazyload"
         >
@@ -234,7 +234,7 @@ const createRestaurantItemTemplate = (restaurant) => {
       <span class="card-info skeleton">${restaurant.city}</span>
       <picture>
         <source 
-          media="(max-width: 600px)" srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
+          media="(max-width: 600px)" data-srcset="${`${API_ENDPOINT.RESTAURANT_IMAGE_SMALL_URL}/${restaurant.pictureId}`}" 
           alt="${restaurant.name}" 
           class="lazyload card-image skeleton"
         >
