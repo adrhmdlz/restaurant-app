@@ -1,30 +1,30 @@
-import UrlParser from '../../routes/url-parser';
 import RestaurantApiDicodingSource from '../../data/restaurantapidicoding-source';
-import { createRestaurantDetailTemplate } from '../../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
-import reviewFormHandler from '../../utils/review-form-handler';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 
 const Detail = {
   async render() {
     return `
       <section class="restaurant-detail" id="restaurantDetail"></section>
-      <div id="likeButtonContainer"></div>
+      <div id="favoriteButtonContainer"></div>
     `;
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const url = (await import('../../routes/url-parser')).default.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantApiDicodingSource.detailRestaurant(url.id);
     const restaurantDetail = restaurant.restaurant;
 
     const heroContainer = document.querySelector('#heroWrapper');
-    heroContainer.innerHTML = '<h1 tabindex="0">Detail Restoran</h1>';
+    heroContainer.innerHTML = (await import('../../templates/template-creator')).createDetailHeroTemplate();
 
     const restaurantContainer = document.querySelector('#restaurantDetail');
-    restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant.restaurant);
+    restaurantContainer.innerHTML = (await import('../../templates/template-creator')).createRestaurantDetailTemplate(
+      restaurantDetail,
+    );
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+    FavoriteButtonPresenter.init({
+      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      favoriteRestaurant: (await import('../../data/favorite-restaurant-idb')).default,
       restaurant: {
         id: restaurantDetail.id,
         name: restaurantDetail.name,
@@ -35,7 +35,7 @@ const Detail = {
       },
     });
 
-    reviewFormHandler();
+    (await import('../../utils/review-form-handler')).default();
   },
 };
 

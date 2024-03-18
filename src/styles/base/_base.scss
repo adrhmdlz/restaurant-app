@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as var;
+@use '../abstracts/animations';
 @use 'sass:map';
 
 *,
@@ -29,6 +30,23 @@ a {
 
   &:focus {
     top: 0;
+  }
+}
+
+.skeleton {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: linear-gradient(90deg, #ddd, #f9f9f9, #ddd);
+    background-size: 200%;
+    animation: skeleton 1s infinite reverse;
   }
 }
 

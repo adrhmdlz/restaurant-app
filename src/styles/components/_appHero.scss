@@ -3,46 +3,58 @@
 
 app-hero {
   .hero-wrapper {
-    width: 100%;
-    height: 90vh;
-
-    margin-top: 70px;
-
+    height: 100vh;
+    margin-top: 75px;
+    overflow: hidden;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    text-align: center;
-    color: var.$font-color-level-4;
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(~/src/public/images/heros/hero-image_2.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    h1 {
-      font-size: 2em;
-      font-weight: bold;
-      text-transform: capitalize;
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      filter: blur(1px) brightness(50%);
+      -webkit-filter: blur(1px) brightness(50%);
+      -moz-filter: blur(1px) brightness(50%);
     }
 
-    a {
-      padding: 24px;
-      border-radius: 10px;
-
-      background-color: var.$color-level-3;
+    .hero-content {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: var.$font-color-level-4;
 
-      font-size: 18px;
-      font-weight: bold;
+      h1 {
+        font-size: 2em;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
 
-      transition: 0.2s ease-in-out;
+      a {
+        padding: 24px;
+        border-radius: 10px;
 
-      &:hover {
-        background-color: var.$color-level-4;
+        background-color: var.$color-level-3;
+        color: var.$font-color-level-4;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          background-color: var.$color-level-4;
+        }
       }
     }
 
@@ -53,22 +65,21 @@ app-hero {
   }
 }
 
-// XS: minimum viewport width: 375px
-@media screen and (min-width: map.get(var.$breakpoints, 'xs')) {
-  app-hero {
-    .hero-wrapper {
-      h1 {
-        font-size: 3em;
-      }
-    }
-  }
-}
-
 // MD: minimum viewport width: 768px
 @media screen and (min-width: map.get(var.$breakpoints, 'md')) {
   app-hero {
     .hero-wrapper {
-      height: 70vh;
+      height: 50vh;
+
+      img {
+        height: 50vh;
+      }
+
+      .hero-content {
+        h1 {
+          font-size: 3em;
+        }
+      }
     }
   }
 }
@@ -79,6 +90,14 @@ app-hero {
     .hero-wrapper {
       min-width: 1000px;
       margin: 80px auto 0;
+
+      img {
+        min-width: 1000px;
+      }
+
+      .hero-content {
+        padding: 130px 0;
+      }
     }
   }
 }
