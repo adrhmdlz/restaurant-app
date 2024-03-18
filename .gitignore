@@ -3,5 +3,8 @@ dist
 
 .env
 .env.example
+.test.env
+.vscode
+.idea
 
 package-lock.json
