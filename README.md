@@ -1,94 +1,108 @@
-# Submission: Katalog Restauran PWA + Testing and Optimized
+<a href="https://github.com/adrhmdlz/restaurant-app" target="_blank"><img alt="GitHub hits" src="https://img.shields.io/github/last-commit/adrhmdlz/restaurant-app?label=Repo%20Updated"></a> <img src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg"></img>
 
-## Pengantar
+# Submission: Katalog Restauran
 
-Selamat! Akhirnya Anda sampai di penghujung kelas ini. Anda sudah mempelajari bagaimana cara melakukan automation test, dan merasakan bagaimana menulis kode menggunakan TDD. Anda juga sudah belajar bagaimana mengoptimasi gambar dan bundle agar ukurannya tetap kecil. Anda juga sudah berlatih:
+A website that contains a collection of restaurants taken from [Dicoding's API](https://restaurant-api.dicoding.dev/). This repository was created as a complement to graduating from the "Becoming a Front-End Developer Expert" class.
 
-- [Test Driven Development menggunakan Jest](https://www.dicoding.com/academies/219/tutorials/9829).
-- [Menerapkan Testing Pada Aplikasi](https://www.dicoding.com/academies/219/tutorials/9839).
-- [Menerapkan Kontrak Test](https://www.dicoding.com/academies/219/tutorials/9874).
-- [Membangun Fitur Menggunakan TDD](https://www.dicoding.com/academies/219/tutorials/9894).
-- [Menerapkan E2E Testing](https://www.dicoding.com/academies/219/tutorials/9944).
-- [Mengkompresi gambar menggunakan Imagemin](https://www.dicoding.com/academies/219/tutorials/9756).
-- [Mengubah Gif menjadi Video](https://www.dicoding.com/academies/219/tutorials/9766).
-- [Menerapkan Image Responsive](https://www.dicoding.com/academies/219/tutorials/9771).
-- [Menggunakan WebP sebagai format gambar](https://www.dicoding.com/academies/219/tutorials/9781).
-- [Menerapkan teknik lazy load gambar](https://www.dicoding.com/academies/219/tutorials/9791).
-- [Menganalisa ukuran bundle JavaScript](https://www.dicoding.com/academies/219/tutorials/9806).
-- [Memecah bundle agar muatannya tetap kecil](https://www.dicoding.com/academies/219/tutorials/9816).
+## App Info
 
-Untuk lulus dari kelas ini, Anda harus mengembangkan kembali web app Katalog Restoran dengan menerapkan automation test dan beberapa optimisasi sesuai dengan kriteria berikut.
+This app was build with:
 
-## Kriteria
+- HTML
+- SASS/SCSS
+- JavaScript
+- PWA
+- Webpack
 
-Fitur yang harus ada pada aplikasi:
+For automation testing, this app use:
 
-1. **Integration Test**, syarat:
+- Jest
+- CodeceptJS
+- Playwright
 
-   - Menerapkan integration test untuk fungsi menyukai dan batal menyukai restoran.
+All data retrieve from this [API](https://restaurant-api.dicoding.dev/).
 
-2. **End to End Test**, syarat:
+## Getting Started
 
-   - Menerapkan End to End Test dengan skenario:
-     - Menyukai salah satu restoran.
-     - Batal menyukai restoran tersebut.
+1.  Clone this repository
 
-3. **Image Optimization**, syarat:
+    ```shell
+    git clone git@github.com:adrhmdlz/restaurant-app.git
+    ```
 
-   1. Melakukan kompresi terhadap gambar hero yang digunakan. Ukuran gambar harus di bawah 200kb.
-   2. Menerapkan teknik image responsive pada gambar hero. Resolusi gambar pada layar seluler dan desktop harus berbeda.
-   3. Menerapkan teknik lazy loading pada gambar daftar restoran yang ditampilkan.
+2.  Move to the repository directory
 
-4. **Bundle Optimization**, syarat:
+    ```shell
+    cd restaurant-app
+    ```
 
-   1. Memasang bundle analyzer pada proyek submission.
-   2. Gunakan teknik Code Splitting untuk memisahkan vendor code dari kode asli yang Anda tuliskan.
+3.  Install depedencies
 
-5. **Pertahankan syarat yang ada pada submission sebelumnya.** Seperti penerapan PWA, responsibilitas tampilan, aksesibilitas pada website dan sebagainya.
+    ```shell
+    npm install
+    ```
 
-## Penilaian
+4.  Usage
 
-Submission Anda akan dinilai oleh reviewer dengan **skala 1-5** berdasarkan dari parameter yang ada.
+    - Run Locally
 
-Anda dapat menerapkan beberapa **saran** di bawah ini untuk mendapatkan nilai tinggi, berikut sarannya:
+      If you want to run it in local server, please read this intructions.
 
-- Menuliskan test case secara lengkap, mulai dari kasus positif hingga kasus negatif. Pastikan test case yang dijalankan berhasil.
-- Menerapkan End to End test pada skenario lain di luar yang sudah ditentukan. Pastikan test case yang dijalankan berhasil. Contoh: bila aplikasi terdapat fitur customer review, lakukan End to End test pada fitur tersebut.
-- Menerapkan optimasi lain di luar dari optimasi yang menjadi persyaratan. Contoh, Anda bisa menerapkan pendekatan skeleton UI, minify/uglify CSS.
-- Mendeploy hasil web app yang Anda kerjakan ke third-party hosting. Seperti _[Firebase Hosting](https://firebase.google.com/docs/hosting), [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com/), [Github Pages](https://pages.github.com/),_ atau yang lainnya. Serta, memperhatikan metrik Web Vitals dengan nilai:
-  - **FCP** < 2.5 detik
-  - **FID/TBT** < 100 ms
-  - **CLS** < 0.1
+      - Development Mode
 
-Note: Lampirkan URL dari laman web yang sudah di hosting pada Student Notes.
+        ```shell
+        npm run start-dev
+        ```
 
-## Lainnya
+      - Production Mode
 
-### Submission yang Akan Ditolak
+        - Build app first
 
-Jika submission Anda tidak sesuai dengan kriteria, maka akan ditolak oleh reviewer, berikut poin-poin yang harus diperhatikan:
+          ```shell
+          npm run build
+          ```
 
-- Tidak memenuhi kriteria yang telah ditentukan.
-- Tidak menggunakan webpack sebagai module bundler dan environment development.
-- Menggunakan CSS framework untuk membantu menyusun layout website.
-- Menggunakan React, Angular, Vue dalam membangun proyek submission.
-- Mengirimkan proyek submission dengan ukuran yang besar, biasanya disebabkan oleh berkas node_modules ikut terkirim.
-- Proyek tidak berhasil di-build.
-- Mengirimkan proyek yang bukan karya sendiri.
+        - Run it in local server
 
-### Ketentuan Berkas Submission
+          ```shell
+          npm run serve
+          ```
 
-Beberapa poin yang perlu diperhatikan ketika mengirimkan berkas submission:
+    - Testing
 
-- Folder proyek terdiri dari **HTML, CSS, JS,** dan semua aset yang Anda gunakan dalam halaman web yang Anda buat.
-- Pastikan terdapat berkas **package.json** yang mengandung daftar **dependencies** yang proyek Anda gunakan.
-- Kirimkan proyek yang dikompresi ke bentuk **ZIP**.
-- Sekali lagi, Anda dilarang menyertakan node_modules yang berisi packages ke dalam berkas ZIP. Ini akan menyebabkan berkas ZIP berukuran sangat besar.
+      There are 2 different testing used in this app, please read this intructions.
 
-### Ketentuan Proses Review
+      - Integration Testing
 
-Berikut adalah beberapa hal yang perlu Anda ketahui mengenai proses review.
+        ```shell
+        npm run test
+        ```
 
-- Tim penilai akan mengulas submission Anda dalam waktu **selambatnya 3 (tiga)** hari kerja (tidak termasuk Sabtu, Minggu, dan hari libur nasional).
-- Tidak disarankan untuk melakukan _submit berkali-kali_ karena akan memperlama proses penilaian.
-- Anda akan mendapatkan notifikasi hasil review submission via email. Status submission juga bisa dilihat dengan mengecek di halaman [submission](https://www.dicoding.com/academysubmissions/my).
+      - End-to-End Testing
+
+        ```shell
+        npm run e2e
+        ```
+
+This project was built to meet the graduation criteria of the last class in the Front-End Developer learning path. All acts of plagiarism will return to Dicoding to take action.
+
+## Build With
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Jest](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white)
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+
+---
+
+> Website [adrhmdlz.github.io](https://adrhmdlz.github.io) &nbsp;&middot;&nbsp;
+> Gmail [@adrianalzidan35](mailto:adrianalzidan35@gmail.com) &nbsp;&middot;&nbsp;
+> GitHub [@adrhmdlz](https://github.com/adrhmdlz) &nbsp;&middot;&nbsp;
+> Instagram [@adrhmdlz](https://instagram.com/adrhmdlz) &nbsp;&middot;&nbsp;
+> LinkedIn [@adrhmdlz](https://www.linkedin.com/in/adrhmdlz/) &nbsp;&middot;&nbsp;
+> Spotify [@Iann](https://open.spotify.com/playlist/0nhR1T67UUSqu4EHYWvAbY?si=c95f6fd6d5b34b04) &nbsp;&middot;&nbsp;
+> Discord [@Budak Kodingan](https://discord.gg/UFJvHbSt6G)
