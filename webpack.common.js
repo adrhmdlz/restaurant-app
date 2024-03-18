@@ -129,7 +129,9 @@ module.exports = {
       overrideExtension: true,
     }),
 
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+    }),
 
     new MiniCssExtractPlugin(),
 
